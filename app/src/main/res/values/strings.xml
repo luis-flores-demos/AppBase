@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AppBase</string>
+
+    <string name="text_title_alert">Alerta</string>
+    <string name="text_btn_acept_alert">Aceptar</string>
+    <string name="text_btn_cancel_alert">Cancelar</string>
+
+    <string name="text_message_alert" formatted="true">
+        <![CDATA[
+            <!DOCTYPE html>
+            <html>
+            <body text="green">
+
+                <h1>Hello world!</h1>
+                <p>This is some text.</p>
+
+            </body>
+            </html>
+        ]]>
+    </string>
+
+
+
+
+</resources>
