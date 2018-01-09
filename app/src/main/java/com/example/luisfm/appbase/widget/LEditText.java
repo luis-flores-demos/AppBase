@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.example.luisfm.appbase.R;
@@ -34,8 +35,6 @@ public class LEditText extends EditText {
     private boolean activateSpecialCharacters;
     private int maxLength = 0;
     private int minLength = 0;
-
-    private Animation shake; // = AnimationUtils.loadAnimation(this.getContext(), R.anim.shake);
     private EditText context = this;
 
     public LEditText(Context context) {
@@ -210,6 +209,20 @@ public class LEditText extends EditText {
 
     //Indicador de validación donde el texto contenido cumple con el mínimo y máximo de caracteres permitidos.
     public boolean isValid() {
+        return isValid;
+    }
+
+    //Indicador de validación donde el texto contenido cumple con el mínimo y máximo de caracteres permitidos y realizar la animación especificada.
+    public boolean isValid(int animationId) {
+
+        if(!isValid){
+            context.startAnimation(AnimationUtils.loadAnimation(this.getContext(), animationId ));
+            context.requestFocus();
+        }else{
+            InputMethodManager imm = (InputMethodManager) context.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(context.getWindowToken(), 0);
+        }
+
         return isValid;
     }
 

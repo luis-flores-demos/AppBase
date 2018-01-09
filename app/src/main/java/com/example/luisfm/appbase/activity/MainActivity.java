@@ -45,7 +45,7 @@ public class MainActivity extends CActivity {
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                edit_prueba1.isValid(R.anim.shake);
             }
         });
 
