@@ -20,22 +20,34 @@ import java.util.ArrayList;
 public class MainActivity extends CActivity {
 
     Button validate;
-    LEditText edit_prueba;
+    LEditText edit_prueba1;
+    LEditText edit_prueba2;
+    LEditText edit_prueba3;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //validate = (Button) findViewById(R.id.validate);
-        //edit_prueba = (LEditText) findViewById(R.id.edit_prueba);
-        //edit_prueba.activateFormatCurrency();
-        /*validate.setOnClickListener(new View.OnClickListener() {
+        validate = (Button) findViewById(R.id.validate);
+
+        edit_prueba1 = (LEditText) findViewById(R.id.edit_prueba1);
+        edit_prueba2 = (LEditText) findViewById(R.id.edit_prueba2);
+        edit_prueba3 = (LEditText) findViewById(R.id.edit_prueba3);
+
+        edit_prueba1.setMaxLength(15);
+        edit_prueba2.activateFormatCurrency();
+        edit_prueba3.activateFormatCurrency();
+
+
+        validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit_prueba.isValid();
+
             }
-        });*/
+        });
 
     }
 

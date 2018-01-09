@@ -7,36 +7,36 @@
 	tools:context=".activity.Flip3DViewTransitionActivity">
 
 	<ViewFlipper
-		android:id="@+id/viewFlipper" 
+		android:id="@+id/viewFlipper"
 		android:layout_width="300dp"
-		android:layout_height="450dp" 
-    	android:gravity="center"
+		android:layout_height="450dp"
+		android:layout_centerInParent="true"
 		android:layout_gravity="center"
 		android:addStatesFromChildren="true"
-		android:layout_centerInParent="true"> 
-    
+		android:gravity="center">
+
 		<ImageView
 			android:id="@+id/imageView1"
-			android:src="@mipmap/ic_launcher"
-			android:layout_width="300dp"
-			android:layout_height="450dp"
-			android:scaleType="centerCrop"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_centerInParent="true"
 			android:layout_gravity="center"
-	    	android:gravity="center"
-    		android:clickable="true"
-			android:layout_centerInParent="true" />
-		
-		<ImageView  
-			android:id="@+id/imageView2" 
-			android:src="@mipmap/ic_launcher"
-			android:layout_width="300dp"
-			android:layout_height="450dp" 
-			android:scaleType="centerCrop"
+			android:clickable="true"
+			android:gravity="center"
+			android:scaleType="fitCenter"
+			android:src="@drawable/ic_action_tdc_1" />
+
+		<ImageView
+			android:id="@+id/imageView2"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_centerInParent="true"
 			android:layout_gravity="center"
-	    	android:gravity="center"
-    		android:clickable="true"
-			android:layout_centerInParent="true" /> 
-		
+			android:clickable="true"
+			android:gravity="center"
+			android:scaleType="fitCenter"
+			android:src="@drawable/ic_action_tdc_2" />
+
 	</ViewFlipper>
 	
 </RelativeLayout>

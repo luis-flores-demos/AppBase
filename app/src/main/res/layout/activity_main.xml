@@ -13,13 +13,47 @@ tools:context=".activity.MainActivity">
         android:layout_height="match_parent"
         android:layout_above="@+id/validate"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_margin="30dp">
 
-        <com.example.luisfm.appbase.widget.LEditText
-            android:id="@+id/edit_prueba"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:layout_height="wrap_content">
+
+            <com.example.luisfm.appbase.widget.LEditText
+                android:id="@+id/edit_prueba1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="No caracteres especiales" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.luisfm.appbase.widget.LEditText
+                android:id="@+id/edit_prueba2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Formato número entero"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.luisfm.appbase.widget.LEditText
+                android:id="@+id/edit_prueba3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Formato número decimal"/>
+
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 

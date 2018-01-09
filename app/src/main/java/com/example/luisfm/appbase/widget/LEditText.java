@@ -19,6 +19,7 @@ import com.example.luisfm.appbase.helpers.Utilities;
 import com.example.luisfm.appbase.model.Properties;
 
 import java.nio.file.FileAlreadyExistsException;
+import java.security.PrivateKey;
 import java.util.ArrayList;
 
 /**
@@ -33,9 +34,9 @@ public class LEditText extends EditText {
     private boolean activateSpecialCharacters;
     private int maxLength = 0;
     private int minLength = 0;
+
     private Animation shake; // = AnimationUtils.loadAnimation(this.getContext(), R.anim.shake);
     private EditText context = this;
-
 
     public LEditText(Context context) {
         super(context);
@@ -57,7 +58,7 @@ public class LEditText extends EditText {
         addEvents();
     }
 
-    //
+    //Inicializa los eventos correspondientes de acuerdo a la configuración establecida
     private void addEvents(){
 
         new Handler().postDelayed(new Runnable() { public void run(){
@@ -147,9 +148,6 @@ public class LEditText extends EditText {
                             }
                         }
 
-
-
-
                     }catch (Exception ex){
 
                     }
@@ -161,6 +159,7 @@ public class LEditText extends EditText {
 
     }
 
+    //Aplicar formato de moneda dependiendo.
     private String formatCurrency(String dato){
 
         try{
@@ -171,6 +170,8 @@ public class LEditText extends EditText {
 
             if(valor > 0)
                 isValid = true;
+            else
+                isValid = false;
 
             if(context.getInputType() == InputType.TYPE_CLASS_NUMBER)
                 valor = Float.parseFloat(dato);
@@ -191,23 +192,19 @@ public class LEditText extends EditText {
                 count = (count == 3) ? 0 : count;
             }
 
-            String result = "0.0";
-
             if(context.getInputType() == 8194)
-                return  resultValueLeft + "." + valueRight;
-            else
-
+                return  (valor == 0) ? "" : resultValueLeft + "." + valueRight;
 
             if(context.getInputType() == InputType.TYPE_CLASS_NUMBER)
                 return resultValueLeft;
-            else
-                result = "0";
 
-            return result;
+            return "";
 
         }catch (Exception ex){
+            isValid = false;
             return "";
         }
+
 
     }
 
@@ -219,6 +216,8 @@ public class LEditText extends EditText {
     //Activar formato de moneda dependiendo el inputType numberDecimal (0,000.00) o number (0,000).
     public void activateFormatCurrency() {
         this.activateFormatCurrency = true;
+
+        context.setSelection(context.length());
     }
 
     //Cantidad máxima de caracteres.
@@ -235,4 +234,5 @@ public class LEditText extends EditText {
     public void activateSpecialCharacters() {
         this.activateSpecialCharacters = true;
     }
+
 }
