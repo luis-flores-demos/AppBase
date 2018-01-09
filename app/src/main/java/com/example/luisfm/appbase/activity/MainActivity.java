@@ -13,15 +13,14 @@ import com.example.luisfm.appbase.interfaz.IGenericEvents;
 import com.example.luisfm.appbase.model.CActivity;
 import com.example.luisfm.appbase.model.CEditText;
 import com.example.luisfm.appbase.model.CSpinner;
+import com.example.luisfm.appbase.widget.LEditText;
 
 import java.util.ArrayList;
 
 public class MainActivity extends CActivity {
 
     Button validate;
-    CSpinner cSpinner;
-    CEditText cEditText1;
-    CEditText cEditText2;
+    LEditText edit_prueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,36 +28,22 @@ public class MainActivity extends CActivity {
         setContentView(R.layout.activity_main);
 
         validate = (Button) findViewById(R.id.validate);
-
-        cSpinner = findViewById(R.id.ejemplo_spinner);
-
-        cEditText1 = findViewById(R.id.ejemplo_edittext1);
-
-        cEditText2 = findViewById(R.id.ejemplo_edittext2);
-
-        ejemploSpinner();
-        ejemploEditText();
-
+        edit_prueba = (LEditText) findViewById(R.id.edit_prueba);
+        edit_prueba.activateFormatCurrency();
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                cSpinner.isValid(true);
-                cEditText1.isValid(true);
-                cEditText2.isValid(true);
-
-                if(cSpinner.isValid(false) && cEditText1.isValid(false) && cEditText2.isValid(true))
-                    ejemploAlerta();
-                //Toast.makeText(context, "OK", Toast.LENGTH_LONG).show();
+                edit_prueba.isValid();
             }
         });
+
     }
 
     public void ejemploEditText(){
 
-        cEditText1.setCurrencyFormat("$", 1000, 2500);
+        //cEditText1.setCurrencyFormat("$", 1000, 2500);
 
-        cEditText2.setCurrencyFormat("", 50, 500);
+        //cEditText2.setCurrencyFormat("", 50, 500);
 
     }
 
@@ -71,7 +56,7 @@ public class MainActivity extends CActivity {
         for (int i = 5; i <= 20; i++)
             datos.add(new CSpinner.ItemSpiner(i , "Item =>" + i));
 
-        cSpinner.setAdpter(context, true, datos, new AdapterView.OnItemSelectedListener() {
+        /*cSpinner.setAdpter(context, true, datos, new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(context, "Actualizar => " + cSpinner.getItemId(), Toast.LENGTH_LONG).show();
@@ -80,7 +65,7 @@ public class MainActivity extends CActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        });*/
 
     }
 
