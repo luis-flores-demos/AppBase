@@ -27,15 +27,15 @@ public class MainActivity extends CActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        validate = (Button) findViewById(R.id.validate);
-        edit_prueba = (LEditText) findViewById(R.id.edit_prueba);
-        edit_prueba.activateFormatCurrency();
-        validate.setOnClickListener(new View.OnClickListener() {
+        //validate = (Button) findViewById(R.id.validate);
+        //edit_prueba = (LEditText) findViewById(R.id.edit_prueba);
+        //edit_prueba.activateFormatCurrency();
+        /*validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 edit_prueba.isValid();
             }
-        });
+        });*/
 
     }
 
